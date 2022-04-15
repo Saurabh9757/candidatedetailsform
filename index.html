@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <style>
+
+      .content{
+         max-width: 700px;
+         margin: auto;
+
+      }
+    
+     footer{
+        text-align: center;
+
+     }
+     fieldset{
+        width: fit-content;
+     }
+    .imgPreview{
+      
+      width: 100px;
+       min-height: 100px;
+       border: 2px black;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       font-weight: bold;
+       color: lightgray;
+       text-align-last: right;
+       
+      
+    }
+   
+    .imgprevimg{
+       display:none;
+       width: 100%;
+       
+    }
+    input[type=submit]{
+       position: relative;
+       left:250px;
+       
+    }
+    
+    input[type=reset]{
+       position:relative;
+       left:250px;
+    }
+    input[type=file]{
+      position:relative;
+       left:510px;
+       
+    }
+    
+ 
+    legend{
+      font-size: 50px;
+      font-weight: bolder;
+    }
+    label{
+     
+    width: 240px;
+    display: inline-block;
+      font-weight: bold;
+      font-size: large;
+      padding-left: 5%; 
+    }
+    .imagepreview{
+             width: 150px;
+             min-height: 192px;
+             border: solid #000;
+             border-width: 2px;
+             position:relative;
+             display:flex;
+             align-items:center;
+             justify-content: center;
+             font-weight: bold;
+             color: gray;
+             float:right;
+             margin-top:0px ;
+            
+         }
+         
+
+     </style>
+         
+</head>
+<body>
+   <div class="content">
+   <form action="backend.php" class="studentform" style="background-color: rgb(216, 232, 236);">
+    <fieldset>  
+    <legend>CANDIDATE DETAILS</legend>
+   
+    <br>    
+ <div>
+   <label for="name">NAME</label><input type="text" name="myName" id="name" placeholder="Enter Your Full Name" pattern="[A-Za-z\A-Za-z\A-Za-z\.]{30}" required></div><br>
+   <div class="imagepreview" id="imgpreview" >         
+     <img src="" alt="Image Preview" class="imgprevimg"><br> 
+      <span class="imgpreviewtext" >Image Preview</span></div>
+      <div>
+      <label for="fathername">FATHER'S NAME</label><input type="text" name="myFatherName" id="fathername" pattern="[A-Za-z\A-Za-z\A-Za-z\.]{30}"placeholder="Enter Your Father's Name"required> 
+   </div><br>
+      <div>
+         <label for="myRoll">ROLL NUMBER</label><input type="text" name="MyRoll"placeholder="Enter Your Roll Number" id="myRoll" pattern="[0-9]{2}"required>   
+        </div>
+        <br>
+
+
+     <div>
+      <label for="myID">ID NUMBER</label><input type="text" name="myID" placeholder="Enter Your ID Number" id="myID"pattern="[0-9]+"required>   
+     </div>
+     <br>
+     <div>
+      <label for="myGender">GENDER</label>  Male <input type="radio" name="MyGender"required> &nbsp; Female <input type="radio" name="MyGender"required>&nbsp; Other <input type="radio" name="MyGender"required> 
+    </div>
+    <br>
+     <div>
+     <label for="dob">DATE OF BIRTH</label> <input type="date" name="myDOB" id="dob" min="1990-01-01" max="2030-12-31" required>
+     <span class="validity"></span> 
+   </div>
+   <br>
+     <div>
+        <label for="email">EMAIL</label> <input type="email" name="myEmail" id="email"placeholder="Enter Your Email ID"required> 
+        <input type="file" name="myPhoto" id="myphoto" class="mypic" src="" required>
+      </div>
+     <div>
+      <label for="phonenum">PHONE NUMBER</label> <input type="tel" name="myPhone"placeholder="Enter Your Phone Number" id="phonenum"pattern="[0-9]{10}"required> </div>
+     <br>
+     <div>
+      <label for="Batch">BATCH</label>
+      <select name="myBatch" id="Batch" required> 
+         <option value="">Select Your Option</option>
+         <option value="Batch 1">BATCH 1</option> 
+          <option value="Batch 2">BATCH 2</option>
+      </select> <br><br>
+      
+      
+      <label for="Course">COURSE</label> 
+        <select name="myCourse" id="Course" required> 
+         <option value="">Select Your Option</option>
+         <option value="BCA">BCA</option> 
+            <option value="BBA">BBA</option> 
+            <option value="B.Com (P)">B.Com (P)</option>
+            <option value="Bsc.IT">Bsc.IT</option>
+            <option value="BBM">BBM</option>
+            <option value="PGDM">PGDM</option>   
+        </select> <br><br>
+        <label for="University">UNIVERSITY</label> 
+        <select name="myUniversity" id="University" required> 
+         <option value="">Select Your Option</option>
+         <option value="AKU">University1</option> 
+            <option value="PPU">University2</option> 
+            <option value="AIMA">University3</option>
+        </select> <br><br>
+     </div>
+     <br>
+     <div>
+      <label for="session">SESSION</label> <input type="month" name="mySession" id="session" min="1990-01-01" max="2030-12-31" required>
+      <span class="validity"></span> to <input type="month" name="mySession" id="session" min="1990-01-01" max="2030-12-31" required>
+      <span class="validity"></span>
+    </div>
+    <br>
+     
+     <div>
+        <label for="address">ADDRESS</label><input type="text" style="font-size: 10pt;height: 40px; width: 350px;" name="myAddress" id="theaddress" required> <br><br><br></div>
+     
+  <input type="submit" value="Submit" >&nbsp;&nbsp;&nbsp; <input type="reset" value="Reset">
+     <br><br>
+    
+      
+      <script>
+         const myphoto=document.getElementById("myphoto");
+         const previewContainer=document.getElementById("imgpreview");
+         const previewImage=previewContainer.querySelector(".imgprevimg");
+         const previewDefaultText=previewContainer.querySelector(".imgpreviewtext");
+ 
+         myphoto.addEventListener("change",function(){
+
+             const file=this.files[0];
+            
+             if (file){
+                 const reader= new FileReader();
+                 previewDefaultText.style.display="none";
+                 previewImage.style.display="block";
+                 reader.addEventListener("load",function(){
+                     
+                     previewImage.setAttribute("src",this.result);
+                 
+                 });
+                 reader.readAsDataURL(file);
+ 
+             }else{
+                 previewDefaultText.style.display=null;
+                 previewImage.style.display=null;
+                 previewImage.setAttribute("src","");
+ 
+             }
+ 
+         });
+ 
+     </script>      
+   
+     <footer>Copyright &#169; 2022 Saurabh. All Rights Reserved.</footer>
+    </fieldset>
+   </form>
+</div>
+</body>
+</html>
